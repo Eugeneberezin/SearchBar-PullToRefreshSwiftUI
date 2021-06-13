@@ -12,7 +12,7 @@ struct OrgListItemView: View {
     var body: some View {
         VStack(alignment: .leading) {
             if let url = URL(string: org.image ?? "") {
-                AsyncImage(url: url, transaction: .init(animation: .spring())) { phase in
+                FetchedImage(url: url ) { phase in
                     switch phase {
                     case .empty:
                         ProgressView()
@@ -42,8 +42,7 @@ struct OrgListItemView: View {
                 .frame(minWidth: 0, maxWidth: 500)
                 .cornerRadius(6)
             } else {
-                Image(systemName: "xmark.octagon.fill")
-                    .resizable()
+                Text("No Image")
                     .foregroundColor(.red)
                     .frame(minWidth: 0, maxWidth: 500)
             }
