@@ -8,7 +8,7 @@
 import Foundation
 
 struct Organization: Codable, Identifiable {
-    var id = UUID()
+    var id: Int { memberID }
     let memberID: Int
     let createdAt: String
     let type: TypeEnum
