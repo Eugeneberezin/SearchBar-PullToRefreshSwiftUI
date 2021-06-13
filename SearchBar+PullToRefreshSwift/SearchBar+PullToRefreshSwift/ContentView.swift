@@ -16,8 +16,10 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            List(listOfOrgs) { org in
-                Text(org.name)
+            List {
+                ForEach(listOfOrgs) { org in
+                OrgListItemView(org: org)
+            }
             }
             .refreshable {
                 viewModel.organizations = []

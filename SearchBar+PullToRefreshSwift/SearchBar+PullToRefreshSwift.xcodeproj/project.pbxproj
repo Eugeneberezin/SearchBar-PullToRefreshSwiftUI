@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		053C2C622676AD5400E1C832 /* OrgListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C2C612676AD5400E1C832 /* OrgListItemView.swift */; };
 		05DD08D12671634D00E6AED7 /* SearchBar_PullToRefreshSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DD08D02671634D00E6AED7 /* SearchBar_PullToRefreshSwiftApp.swift */; };
 		05DD08D32671634D00E6AED7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DD08D22671634D00E6AED7 /* ContentView.swift */; };
 		05DD08D52671634E00E6AED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05DD08D42671634E00E6AED7 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		053C2C612676AD5400E1C832 /* OrgListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgListItemView.swift; sourceTree = "<group>"; };
 		05DD08CD2671634D00E6AED7 /* SearchBar+PullToRefreshSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SearchBar+PullToRefreshSwift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DD08D02671634D00E6AED7 /* SearchBar_PullToRefreshSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar_PullToRefreshSwiftApp.swift; sourceTree = "<group>"; };
 		05DD08D22671634D00E6AED7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				05DD08DE2671638300E6AED7 /* OrganizationModel.swift */,
 				05DD08E0267163E900E6AED7 /* OrganizationService.swift */,
 				05DD08E426718DE500E6AED7 /* ViewModel.swift */,
+				053C2C612676AD5400E1C832 /* OrgListItemView.swift */,
 			);
 			path = "SearchBar+PullToRefreshSwift";
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			files = (
 				05DD08E526718DE500E6AED7 /* ViewModel.swift in Sources */,
 				05DD08D32671634D00E6AED7 /* ContentView.swift in Sources */,
+				053C2C622676AD5400E1C832 /* OrgListItemView.swift in Sources */,
 				05DD08DF2671638300E6AED7 /* OrganizationModel.swift in Sources */,
 				05DD08E1267163E900E6AED7 /* OrganizationService.swift in Sources */,
 				05DD08D12671634D00E6AED7 /* SearchBar_PullToRefreshSwiftApp.swift in Sources */,
