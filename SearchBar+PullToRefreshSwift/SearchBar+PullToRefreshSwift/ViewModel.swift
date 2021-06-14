@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+@MainActor
 class ViewModel:ObservableObject {
     @Published var organizations = [Organization]()
     @Published var searchTerm = ""
