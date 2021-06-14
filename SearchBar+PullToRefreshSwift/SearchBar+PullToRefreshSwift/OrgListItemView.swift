@@ -20,6 +20,7 @@ struct OrgListItemView: View {
                     case .success(let image):
                         image
                             .resizable()
+                            .cornerRadius(6)
                             .aspectRatio(contentMode: .fit)
                         
                     case .failure(_):
@@ -63,9 +64,15 @@ struct OrgListItemView: View {
                 }
                 
             }
+            
+            .frame(minWidth: 0, maxWidth: 500)
+            .background(Color.mint)
+            .cornerRadius(6)
             .padding()
+
+            
         }
-        .background(Color.gray)
+        .background(Color(uiColor: .lightGray))
         .cornerRadius(6)
         .listRowSeparator(.hidden)
     }
