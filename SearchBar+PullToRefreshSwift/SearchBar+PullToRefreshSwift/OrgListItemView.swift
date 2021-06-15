@@ -10,22 +10,35 @@ import SwiftUI
 struct OrgListItemView: View {
     let org: Organization
     
-    var attributedLink: AttributedString {
-        let websiteLink = try! AttributedString(
-            markdown:"[Website](\(org.website ?? ""))")
-        return websiteLink
+    var website: AttributedString {
+        var website = AttributedString("Website is not available")
+        do {
+            website = try AttributedString(markdown: "[Website](\(org.website ?? ""))")
+        } catch {
+            print("No Link")
+        }
+        return website
     }
     
     var twitter: AttributedString {
-        let twitterLink = try! AttributedString(
-            markdown:"[Twitter](\(org.twitter ?? ""))")
+        var twitterLink = AttributedString("Twitter link not found")
+        do {
+          twitterLink = try AttributedString(markdown:"[Twitter](\(org.twitter ?? ""))")
+            
+        } catch {
+            print("No link")
+        }
         return twitterLink
     }
     
     var gitHub: AttributedString {
-        let gitHubLink = try! AttributedString(
-            markdown:"[GitHub](\(org.github ?? ""))")
-        return gitHubLink
+        var githubLink = AttributedString("No Github")
+        do {
+            githubLink = try AttributedString(markdown: "[GitGub](\(org.github ?? ""))")
+        } catch {
+            print("No link")
+        }
+        return githubLink
     }
     
     var body: some View {
@@ -74,7 +87,7 @@ struct OrgListItemView: View {
                 Text("Description: \(org.modelDescription ?? "N/A")")
                 
                 if org.website != nil {
-                    Text(attributedLink)
+                    Text(website)
                 }
                 if org.twitter != nil {
                     Text(twitter)
