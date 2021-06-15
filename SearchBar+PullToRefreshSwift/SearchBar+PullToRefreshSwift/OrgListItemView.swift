@@ -9,6 +9,25 @@ import SwiftUI
 
 struct OrgListItemView: View {
     let org: Organization
+    
+    var attributedLink: AttributedString {
+        let websiteLink = try! AttributedString(
+            markdown:"[Website](\(org.website ?? ""))")
+        return websiteLink
+    }
+    
+    var twitter: AttributedString {
+        let twitterLink = try! AttributedString(
+            markdown:"[Twitter](\(org.twitter ?? ""))")
+        return twitterLink
+    }
+    
+    var gitHub: AttributedString {
+        let gitHubLink = try! AttributedString(
+            markdown:"[GitHub](\(org.github ?? ""))")
+        return gitHubLink
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
             if let url = URL(string: org.image ?? "") {
@@ -53,24 +72,22 @@ struct OrgListItemView: View {
                 Text("`Type: \(org.type.rawValue)`")
                 Text("Role: \(org.role.rawValue)")
                 Text("Description: \(org.modelDescription ?? "N/A")")
-                if let websiteLink = URL(string: org.website ?? "") {
-                    Link("Website", destination: websiteLink)
+                
+                if org.website != nil {
+                    Text(attributedLink)
                 }
-                if let twitterLink = URL(string: org.twitter ?? "") {
-                    Link("Twitter", destination: twitterLink)
+                if org.twitter != nil {
+                    Text(twitter)
                 }
-                if let gitHubLink = URL(string: org.github ?? "") {
-                    Link("GitHub", destination: gitHubLink)
+                if org.github != nil {
+                  Text(gitHub)
                 }
                 
             }
-            
-            .frame(minWidth: 0, maxWidth: 500)
-            .background(Color.mint)
-            .cornerRadius(6)
             .padding()
-
-            
+            .frame(minWidth: 0, maxWidth: 500, alignment: .leading)
+            .background(.ultraThinMaterial)
+            .cornerRadius(6)
         }
         .background(Color(uiColor: .lightGray))
         .cornerRadius(6)
