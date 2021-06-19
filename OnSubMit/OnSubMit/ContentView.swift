@@ -14,34 +14,32 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            VStack{
-                TextField("Login", text: $login)
-                    .textFieldStyle(.roundedBorder)
-                TextField("Password", text: $password)
-                    .textFieldStyle(.roundedBorder)
-                if isAuthenticated {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 8)
-                            .background(Color.green)
-                        Text("**AUTHENTICATED**")
-                            .font(.title)
+            VStack {
+                VStack {
+                    TextField("Login", text: $login)
+                        .textFieldStyle(.roundedBorder)
+                    TextField("Password", text: $password)
+                        .textFieldStyle(.roundedBorder)
+                    if isAuthenticated {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 8)
+                                .background(Color.green)
+                            Text("**AUTHENTICATED**")
+                                .font(.title)
+                        }
                     }
+                
                 }
+                .animation(.spring(response: 1.5, dampingFraction: 1, blendDuration: 0.9), value: isAuthenticated)
+                .frame(width: 300, height: 200, alignment: .center)
+                .padding()
+                .background(.thinMaterial)
+                .cornerRadius(8)
+                .padding()
+                Spacer()
             }
-            .animation(.spring(response: 1.5, dampingFraction: 0.9, blendDuration: 1), value: isAuthenticated)
-            .frame(width: 300, height: 200, alignment: .center)
-            .padding()
-            .background(.thinMaterial)
+            .frame(minWidth: 700)
             .background(Color.blue)
-            .cornerRadius(8)
-            .padding()
-            .onSubmit(of: .text) {
-                if !password.isEmpty && !login.isEmpty {
-                    isAuthenticated = true
-                } else {
-                    isAuthenticated = false
-                }
-            }
         }
         
     }
