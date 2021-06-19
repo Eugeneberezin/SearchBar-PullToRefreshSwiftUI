@@ -26,16 +26,10 @@ struct ContentView: View {
                 viewModel.fetchOrganizations()
             }
             .navigationTitle("Organizations")
-            .onAppear {
-                viewModel.fetchOrganizations()
-            }
         }
-
-        
-        .searchable(text: $viewModel.searchTerm) {
-            ForEach(viewModel.searchSuggestions) {suggestion in
-                Text(suggestion.name).searchCompletion(suggestion.name)
-            }
+        .searchable(text: $viewModel.searchTerm)
+        .onSubmit(of: .search) {
+            viewModel.fetchOrganizations()
         }
     }
 }

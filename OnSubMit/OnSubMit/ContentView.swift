@@ -36,6 +36,13 @@ struct ContentView: View {
                 .background(.thinMaterial)
                 .cornerRadius(8)
                 .padding()
+                .onSubmit {
+                    if !login.isEmpty && !password.isEmpty {
+                        isAuthenticated = true
+                    } else {
+                        isAuthenticated = false
+                    }
+                }
                 Spacer()
             }
             .frame(minWidth: 700)
