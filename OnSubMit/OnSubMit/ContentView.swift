@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+enum Field: Hashable {
+    case login
+    case password
+}
 
 struct ContentView: View {
+    @FocusState private var focusedField: Field?
     @State private var login = ""
     @State private var password = ""
     @State private var isAuthenticated = false
@@ -18,8 +23,10 @@ struct ContentView: View {
                 VStack {
                     TextField("Login", text: $login)
                         .textFieldStyle(.roundedBorder)
+                        .focused($focusedField, equals: .login)
                     TextField("Password", text: $password)
                         .textFieldStyle(.roundedBorder)
+                        .focused($focusedField, equals: .password)
                     if isAuthenticated {
                         ZStack {
                             RoundedRectangle(cornerRadius: 8)
@@ -41,6 +48,11 @@ struct ContentView: View {
                         isAuthenticated = true
                     } else {
                         isAuthenticated = false
+                    }
+                    if login.isEmpty {
+                        focusedField = .login
+                    } else if password.isEmpty {
+                        focusedField = .password
                     }
                 }
                 Spacer()

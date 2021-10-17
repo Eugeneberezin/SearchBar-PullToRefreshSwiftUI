@@ -72,12 +72,12 @@ struct OrgListItemView: View {
                     }
                 }
                 .padding()
-                .frame(minWidth: 0, maxWidth: 500)
+                .frame(minWidth: 0, maxWidth: 50)
                 .cornerRadius(6)
             } else {
                 Text("No Image")
                     .foregroundColor(.red)
-                    .frame(minWidth: 0, maxWidth: 500)
+                    .frame(minWidth: 0, maxWidth: 50)
             }
             
             VStack(alignment: .leading, spacing: 5) {
@@ -98,7 +98,7 @@ struct OrgListItemView: View {
                 
             }
             .padding()
-            .frame(minWidth: 0, maxWidth: 500, alignment: .leading)
+            .frame(minWidth: 0, maxWidth: 50, alignment: .leading)
             .background(.ultraThinMaterial)
             .cornerRadius(6)
         }

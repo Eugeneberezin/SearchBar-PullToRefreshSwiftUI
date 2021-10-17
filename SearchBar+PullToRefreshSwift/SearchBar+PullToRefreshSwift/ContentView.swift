@@ -18,8 +18,9 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(listOfOrgs) { org in
-                OrgListItemView(org: org)
-            }
+                    SmallRawViee(org: org)
+
+                }
             }
             .refreshable {
                 viewModel.organizations = []
@@ -27,8 +28,8 @@ struct ContentView: View {
             }
             .navigationTitle("Organizations")
         }
-        .searchable(text: $viewModel.searchTerm)
-        .onSubmit(of: .search) {
+        .searchable(text: $viewModel.searchTerm, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search for the company")
+        .task {
             viewModel.fetchOrganizations()
         }
     }
